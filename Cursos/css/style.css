@@ -4,3 +4,7 @@ td img{
 footer{
     text-align: center;
 }
+td a{
+    color: red;
+    text-decoration: none;
+}
