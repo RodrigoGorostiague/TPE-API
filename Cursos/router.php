@@ -1,16 +1,16 @@
 <?php 
     define('ACTION', 0);
-    define('VAL1', 1);
-    define('VAL2', 2);
+    define('PARAMS', 1);
     
     require_once 'controller/LessonsController.php';
+    require_once 'controller/UserLessonsController.php';
+    require_once 'controller/UserController.php';
     require_once 'config/ConfigApp.php';
 
-    $controller = new LessonsController();
     function parseURL($URL){
         $explodedURL = explode('/', $URL);
         $arrayReturn[ConfigApp::$ACTION] = $explodedURL[ACTION];
-        $arrayReturn[ConfigApp::$PARAMS] =(isset($explodedURL[VAL1])) ? array_slice($explodedURL,VAL1) : null; //if en una sola linea
+        $arrayReturn[ConfigApp::$PARAMS] =(isset($explodedURL[PARAMS])) ? array_slice($explodedURL,PARAMS) : null; //if en una sola linea
         return $arrayReturn;
     }
     if (isset($_GET['action'])){
@@ -18,7 +18,9 @@
         $action = $urlData[ConfigApp::$ACTION];
         if(array_key_exists($action, ConfigApp::$ACTIONS)){
             $params = $urlData[ConfigApp::$PARAMS];
-            $metodo = ConfigApp::$ACTIONS[$action];
+            $action = explode('#', ConfigApp::$ACTIONS[$action]);
+            $controller = new $action[0]();
+            $metodo = $action[1];
             if(isset($params) && ($params != null)){
                echo $controller->$metodo($params);
             }

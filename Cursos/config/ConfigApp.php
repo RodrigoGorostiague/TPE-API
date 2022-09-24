@@ -3,15 +3,14 @@
         public static $ACTION = 'action';
         public static $PARAMS = 'params';
         public static $ACTIONS = [
-            '' => 'home',
-            'home' => 'home',
-            'mis-cursos' => 'myLessons',
-            'agregar' => 'agregar',
-            'borrar' => 'borrar',
-            'like' => 'like',
-            'login' => 'login',
-            'newUser' => 'newUser',
+            '' => 'LessonsController#home',
+            'home' => 'LessonsController#home',
+            'agregar' => 'LessonsController#agregar',
+            'like' => 'LessonsController#like',
+            'mis-cursos' => 'UserLessonsController#myLessons',
+            'borrar' => 'UserLessonsController#borrar',
+            'login' => 'UserController#login',
+            'newUser' => 'UserController#newUser',
         ];
-
     }
 ?>

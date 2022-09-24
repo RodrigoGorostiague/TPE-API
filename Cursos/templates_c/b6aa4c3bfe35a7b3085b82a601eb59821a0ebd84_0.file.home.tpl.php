@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-24 02:57:54
+/* Smarty version 4.2.1, created on 2022-09-24 13:22:07
   from 'C:\xampp\htdocs\Web II\Rodo\TPE\Cursos\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_632e5612ef07f1_73728024',
+  'unifunc' => 'content_632ee85ff04093_84200208',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b6aa4c3bfe35a7b3085b82a601eb59821a0ebd84' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\Rodo\\TPE\\Cursos\\templates\\home.tpl',
-      1 => 1663980988,
+      1 => 1663981493,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_632e5612ef07f1_73728024 (Smarty_Internal_Template $_smarty_tpl) {
+function content_632ee85ff04093_84200208 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <h1>Clases</h1>
