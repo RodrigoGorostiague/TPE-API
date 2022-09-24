@@ -1,12 +1,6 @@
 <?php
   require_once('libs/Smarty.class.php');   
-    class UserView{
-        private $smarty;
-        function __construct(){
-          $URL = 'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/';
-          $this->smarty = new Smarty();
-          $this->smarty->assign('URL', $URL);
-        }
+    class UserView extends View{
         function showLogin(){
           $this->smarty->display('login.tpl');
         }

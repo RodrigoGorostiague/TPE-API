@@ -1,11 +1,5 @@
 <?php
-    class UserLessonsModel{
-        private $db;
-        function __construct(){
-            $this->db = new PDO('mysql:host=localhost;'
-            .'dbname=db_cursos;charset=utf8',
-            'root', '34632290');
-        }
+    class UserLessonsModel extends Model{
         function getUserLessons(){
             $sentencia = $this->db->prepare("select * from user_lessons ul left join lessons l on ul.lessons_id = l.id where ul.user_id =1");
             $sentencia->execute();

@@ -1,7 +1,9 @@
 <?php 
     define('ACTION', 0);
     define('PARAMS', 1);
-    
+    require_once 'model/Model.php';
+    require_once 'view/View.php';
+    require_once 'controller/Controller.php';
     require_once 'controller/LessonsController.php';
     require_once 'controller/UserLessonsController.php';
     require_once 'controller/UserController.php';

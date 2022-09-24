@@ -1,11 +1,5 @@
 <?php 
-    class LessonsModel{
-        private $db;
-        function __construct(){
-            $this->db = new PDO('mysql:host=localhost;'
-            .'dbname=db_cursos;charset=utf8',
-            'root', '34632290');
-        }
+    class LessonsModel extends Model{
         function getLessons(){
             $sentencia = $this->db->prepare("SELECT * FROM lessons");
             $sentencia->execute();
