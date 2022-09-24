@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-22 23:24:43
+/* Smarty version 4.2.1, created on 2022-09-24 02:57:54
   from 'C:\xampp\htdocs\Web II\Rodo\TPE\Cursos\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_632cd29b6c54f5_98011566',
+  'unifunc' => 'content_632e5612ef07f1_73728024',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b6aa4c3bfe35a7b3085b82a601eb59821a0ebd84' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\Rodo\\TPE\\Cursos\\templates\\home.tpl',
-      1 => 1663881881,
+      1 => 1663980988,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_632cd29b6c54f5_98011566 (Smarty_Internal_Template $_smarty_tpl) {
+function content_632e5612ef07f1_73728024 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    
+    <h1>Clases</h1>
         <section class="lessons">
+        
+                     
+            <form method="GET" class="search">
+                <div class="input-group mb-3">
+                  <input name="search" type="text" class="form-control" placeholder="Tema" aria-label="Tema" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-danger" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
             <table class="table table-hover">
+            <?php if ((isset($_smarty_tpl->tpl_vars['error']->value))) {?>
+              <div class="alert alert-danger" role="alert">
+                <?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+
+            </div><?php }?>
                 <thead>
                 <tr>
                     <th>Tema</th>
@@ -53,9 +66,10 @@ $_smarty_tpl->tpl_vars['lesson']->do_else = false;
 
                         <td>
                         <button class="btn btn-outline-danger"><a href="agregar/<?php echo $_smarty_tpl->tpl_vars['lesson']->value['id'];?>
-">Agregar</a></button>
+"><i class="bi bi-file-plus"></i></a></button>
                         <button type="button" class="btn btn-outline-danger position-relative">
-                          Like
+                        <a href="like/<?php echo $_smarty_tpl->tpl_vars['lesson']->value['id'];?>
+"><i class="bi bi-hand-thumbs-up"></i></a>
                           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                           <?php echo $_smarty_tpl->tpl_vars['lesson']->value['likes'];?>
 
@@ -69,9 +83,10 @@ $_smarty_tpl->tpl_vars['lesson']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </table>
+                
         </section>
-    
         </main>
+        
         <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }

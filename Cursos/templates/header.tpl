@@ -22,12 +22,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="mis-cursos">Mis Cursos</a>
-                        </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="mis-cursos">Mis Cursos</a>
+                    </li>
+                    <li class="nav-item login">
+                        <a class="nav-link active" href="login" aria-current="page">Login <span class="visually-hidden">(current)</span></a>
+                    </li>
                     </ul>
                 </div>
            </div>
