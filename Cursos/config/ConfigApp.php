@@ -9,7 +9,10 @@
             'like' => 'LessonsController#like',
             'mis-cursos' => 'UserLessonsController#myLessons',
             'borrar' => 'UserLessonsController#borrar',
-            'login' => 'UserController#login',
+            'login' => 'UserController#logIn',
+            'logout' => 'UserController#logOut',
+            'userValidate' => 'UserController#userValidate',
+            'signin' => 'UserController#signIn',
             'newUser' => 'UserController#newUser',
         ];
     }

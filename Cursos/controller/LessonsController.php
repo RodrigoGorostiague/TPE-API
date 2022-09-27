@@ -3,10 +3,11 @@
     require_once './model/LessonsModel.php';
     require_once './model/UserLessonsModel.php';
 
-    class LessonsController extends Controller{
+    class LessonsController extends SecuredController{
         private $UserLessonsModel;
        
         function __construct(){
+            parent::__construct();
             $this->view = new LessonsView();
             $this->model = new LessonsModel();
             $this->UserLessonsModel = new UserLessonsModel();
@@ -16,9 +17,10 @@
             $this->view->showLessons($lessons);
         }
         function agregar($lessonId) {
-            $lessons = $this->UserLessonsModel->getUserLessons();
-            if(empty($this->LessonsModel->alredyExist($lessonId))){
-                $this->model->addToList($lessonId);
+            $userId = $_SESSION['USER_ID'] ;
+            $lessons = $this->UserLessonsModel->getUserLessons($userId);
+            if(empty($this->model->alredyExist($lessonId, $userId))){
+                $this->model->addToList($lessonId, $userId );
                 $this->home();
             }else{
                 $lessons = $this->model->getLessons();

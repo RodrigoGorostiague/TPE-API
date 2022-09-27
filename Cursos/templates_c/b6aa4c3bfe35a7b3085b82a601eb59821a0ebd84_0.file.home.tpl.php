@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-24 13:22:07
+/* Smarty version 4.2.1, created on 2022-09-25 06:00:07
   from 'C:\xampp\htdocs\Web II\Rodo\TPE\Cursos\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_632ee85ff04093_84200208',
+  'unifunc' => 'content_632fd2471853d6_66963142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b6aa4c3bfe35a7b3085b82a601eb59821a0ebd84' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\Rodo\\TPE\\Cursos\\templates\\home.tpl',
-      1 => 1663981493,
+      1 => 1664078405,
       2 => 'file',
     ),
   ),
@@ -22,19 +22,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_632ee85ff04093_84200208 (Smarty_Internal_Template $_smarty_tpl) {
+function content_632fd2471853d6_66963142 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <h1>Clases</h1>
+    
         <section class="lessons">
-        
-                     
-            <form method="GET" class="search">
-                <div class="input-group mb-3">
-                  <input name="search" type="text" class="form-control" placeholder="Tema" aria-label="Tema" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-danger" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
-                </div>
+           <div class="conteiner">
+           <form method="GET" class="search">
+              <div class="input-group mb-3">
+                <input name="search" type="text" class="form-control" placeholder="Tema" aria-label="Tema" aria-describedby="button-addon2">
+                <button class="btn btn-outline-danger" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+                <button type="button" class="btn btn-outline-danger"><a href="mis-cursos">Ver mis Cursos</a></button>
+              </div>
             </form>
+           </div>
             <table class="table table-hover">
             <?php if ((isset($_smarty_tpl->tpl_vars['error']->value))) {?>
               <div class="alert alert-danger" role="alert">

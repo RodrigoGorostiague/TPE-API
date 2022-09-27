@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-24 00:46:27
+/* Smarty version 4.2.1, created on 2022-09-25 06:11:08
   from 'C:\xampp\htdocs\Web II\Rodo\TPE\Cursos\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_632e3743a81503_14555130',
+  'unifunc' => 'content_632fd4dc6f9b18_39018648',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '403a2323b882b5e6fa7f6e0efe0edb745ddcf4c6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\Rodo\\TPE\\Cursos\\templates\\header.tpl',
-      1 => 1663973185,
+      1 => 1664078881,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_632e3743a81503_14555130 (Smarty_Internal_Template $_smarty_tpl) {
+function content_632fd4dc6f9b18_39018648 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
     <html lang="en">
         <head>
@@ -46,11 +46,8 @@ function content_632e3743a81503_14555130 (Smarty_Internal_Template $_smarty_tpl)
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link" href="mis-cursos">Mis Cursos</a>
-                    </li>
                     <li class="nav-item login">
-                        <a class="nav-link active" href="login" aria-current="page">Login <span class="visually-hidden">(current)</span></a>
+                        <a class="nav-link active" href="logout" aria-current="page">Log Out<span class="visually-hidden">(current)</span></a>
                     </li>
                     </ul>
                 </div>

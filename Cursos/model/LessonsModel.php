@@ -5,9 +5,9 @@
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }
-        function addToList($lessonId){
+        function addToList($lessonId, $userId){
             $sentencia = $this->db->prepare("insert into user_lessons (user_id, lessons_id) value (?, ?)");
-            $sentencia->execute(array(1,$lessonId[0]));
+            $sentencia->execute(array($userId, $lessonId[0]));
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }
         function addLike($lessonId){
@@ -15,9 +15,9 @@
             $sentencia->execute(array($lessonId[0]));
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }
-        function alredyExist($lessonId){
+        function alredyExist($lessonId, $userId){
             $sentencia = $this->db->prepare("select lessons_id from user_lessons where user_id =(?) and lessons_id =(?);");
-            $sentencia->execute(array(1,$lessonId[0]));
+            $sentencia->execute(array($userId,$lessonId[0]));
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }
     }
