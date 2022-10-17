@@ -8,7 +8,21 @@
             $this->model = new UserModel();
         }
         function signIn() {
-            $this->view->showSignIn();
+            if(isset($_SESSION['USER'])){
+                $user = $_SESSION['USER'];
+            }else{
+                $user = -1;
+            }
+            $this->view->showSignIn($user);
+
+        }
+        function logIn() {
+            if(isset($_SESSION['USER'])){
+                $user = $_SESSION['USER'];
+            }else{
+                $user = -1;
+            }
+            $this->view->showLogIn($user);
         }
         function newUser(){
             if(!empty($_POST['userName']) && (!empty($_POST['name'])) && (!empty($_POST['lastName'])) && !empty($_POST['email']) && !empty($_POST['password'])){
@@ -23,9 +37,6 @@
             }else{
                 $this->view->showLogIn();
             }
-        }
-        function logIn() {
-            $this->view->showLogIn();
         }
         function userValidate(){
             $userName= $_POST['userName'];
@@ -46,7 +57,7 @@
         public function logOut(){
             session_start();
             session_destroy();
-            echo header('Location: http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/login');
+            echo header('Location: http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/home');
         }
     }
 ?>

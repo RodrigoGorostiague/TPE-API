@@ -32,8 +32,8 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
     <label class="form-check-label" for="exampleCheck1">Estas de acuerdo</label>
   </div>
-  <button type="submit" class="btn btn-outline-danger">Crear usuario</button>
-  <button type="button" class="btn btn-outline-danger"><a href="login">Ya estoy registrado</a></button>
+  <button type="submit" class="btn btn-outline-warning">Crear usuario</button>
+  <button type="button" class="btn btn-outline-warning"><a href="login">Ya estoy registrado</a></button>
   </form>
   </div>
 

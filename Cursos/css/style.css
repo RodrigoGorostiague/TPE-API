@@ -1,58 +1,157 @@
-td img{
-    width: 15px;
+body {
+  background-image: url(../assets/images/backgroud.jpg);
 }
-footer{
-    text-align: center;
+td img {
+  width: 15px;
 }
-td a{
-    color: red;
-    text-decoration: none;
+footer {
+  text-align: center;
 }
-td a:hover{
-    color: white;
+td a {
+  color: #f2d50f;
+  text-decoration: none;
 }
-.search{
-    margin:0;
-    width:300px;
+td a:hover {
+  color: white;
 }
-.loginForm{
-    padding:10px;
-    margin-left: auto;
-    margin-right: auto;
-    width:250px;
-    border:1px solid;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+h1,
+footer {
+  color: #fff;
 }
-.loginForm button{
-    width: 100%;
-    margin-bottom: 5px;
+.loginForm {
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 350px;
+  height: auto;
+  border: 1px solid;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+  box-shadow: 3px 3px rgba(242, 213, 16, 0.5);
 }
-.loginForm label{
-    margin-bottom: 0px;
-    margin-top: 0px;
+.loginForm button {
+  width: 100%;
+  margin-bottom: 5px;
 }
-.loginForm input{
-    margin: 0px;
+.loginForm a {
+  text-decoration: none;
+  color: #f2d50f;
 }
-.loginForm a{
-    text-decoration: none;
-    color:red;
+.loginForm a:hover {
+  color: #000;
 }
-.loginForm a:hover{ 
-    color:white
+.conteiner {
+  display: flex;
 }
-.conteiner{
-    display: flex;
+.card--conteiner {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  height: 540px;
 }
-.search{
-    width:450px;
+.card {
+  width: 35rem;
+  background: linear-gradient(135deg, #f2d50f 0%, #da0641 100%);
+  border: 20px solid #a1051d;
+  color: white;
+  box-shadow: rgba(161, 5, 29, 0.4) 5px 5px, rgba(161, 5, 29, 0.3) 10px 10px,
+    rgba(161, 5, 29, 0.2) 15px 15px, rgba(161, 5, 29, 0.1) 20px 20px,
+    rgba(161, 5, 29, 0.05) 25px 25px;
+  border-radius: 5px;
 }
-.search a:hover{
-    color:white
+iframe {
+  border-radius: 5px;
+  height: 250px;
 }
-
-.search a{
-    text-decoration: none;
-    color:red;
+.page-header {
+  width: 12rem;
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+}
+h3 {
+  color: #f2d50f;
+}
+.conteiner-cmd {
+  display: flex;
+  height: 3auto;
+}
+.admin-menu {
+  list-style: none;
+  padding-left: 0.5em;
+}
+.menu-heading {
+  margin-top: 0.5rem;
+}
+li a {
+  text-decoration: none;
+  color: #f2d50f;
+}
+li a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+.menu-list {
+  margin-top: 15px;
+}
+.admin-name {
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+  width: 85vw;
+  text-align: center;
+}
+.modal-body {
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+}
+.modal-body input {
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+  color: #fff;
+}
+.modal-body label {
+  color: #f2d50f;
+}
+.modal-content {
+  background: linear-gradient(135deg, #f2d50f 0%, #da0641 100%);
+}
+.accordion-body,
+.loginForm {
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+}
+.accordion-body label,
+.loginForm label {
+  color: #f2d50f;
+}
+.accordion-body input,
+.loginForm input {
+  background: linear-gradient(135deg, #313131 0%, #534d4d 100%);
+  color: #fff;
+}
+.accordion-body input:focus,
+.modal-body input:focus,
+.loginForm input:focus {
+  border-color: #f2d50f;
+  box-shadow: 3px 3px rgba(242, 213, 16, 0.5);
+  color: #fff;
+}
+.btn:hover {
+  box-shadow: 3px 3px rgba(242, 213, 16, 0.5);
+}
+button a:hover {
+  color: #000;
+}
+.accordion-item {
+  justify-content: center;
+}
+.user-iframe {
+  display: block;
+  width: 80em;
+  height: 30em;
+  margin-left: auto;
+  margin-right: auto;
+}
+select,
+select:focus,
+option {
+  background-color: #313131;
+  color: #fff;
+  box-shadow: 3px 3px rgba(242, 213, 16, 0.5);
 }

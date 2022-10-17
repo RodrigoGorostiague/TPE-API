@@ -1,7 +1,7 @@
 <?php
     class UserLessonsModel extends Model{
         function getUserLessons($userId){
-            $sentencia = $this->db->prepare("select * from user_lessons ul left join lessons l on ul.lessons_id = l.id where ul.user_id = (?)");
+            $sentencia = $this->db->prepare("SELECT * FROM user_lessons INNER JOIN lesson ON user_lessons.lesson_id = lesson.id INNER JOIN tema ON lesson.tema_id = tema.id WHERE user_lessons.user_id =  (?)");
             $sentencia->execute([$userId]);
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }

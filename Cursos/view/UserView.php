@@ -1,10 +1,12 @@
 <?php
   require_once('libs/Smarty.class.php');   
     class UserView extends View{
-        function showSignIn(){
+        function showSignIn($user){
+          $this->smarty->assign('user', $user);
           $this->smarty->display('signin.tpl');
         }
-        function showLogIn(){
+        function showLogIn($user){
+          $this->smarty->assign('user', $user);
           $this->smarty->display('login.tpl');
         }
         function thxPage(){

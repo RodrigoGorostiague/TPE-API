@@ -8,6 +8,7 @@
     require_once 'controller/LessonsController.php';
     require_once 'controller/UserLessonsController.php';
     require_once 'controller/UserController.php';
+    require_once 'controller/AdminController.php';
     require_once 'config/ConfigApp.php';
 
     function parseURL($URL){

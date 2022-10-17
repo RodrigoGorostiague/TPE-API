@@ -9,10 +9,15 @@
             $this->model = new UserLessonsModel();
         }
         function myLessons() {
-            $userId = $_SESSION['USER_ID'] ;
+            if(isset($_SESSION['USER'])){
+                $user = $_SESSION['USER'];
+            }else{
+                $user = -1;
+            }
+            $userId = $_SESSION['USER_ID'];
             $lessons = $this->model->getUserLessons($userId);
-            $this->view->showUserLessons($lessons);
-            echo $userId;
+            $this->view->showUserLessons($lessons, $user);
+            
             
         }
         function borrar($lessonId) {
