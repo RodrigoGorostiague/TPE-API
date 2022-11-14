@@ -3,16 +3,17 @@
     require_once './model/LessonsModel.php';
     require_once './model/UserLessonsModel.php';
 
-    class LessonsController extends SecuredController{
+    class LessonsController extends Controller{
         private $UserLessonsModel;
        
         function __construct(){
-            parent::__construct();
+            session_start();
             $this->view = new LessonsView();
             $this->model = new LessonsModel();
             $this->UserLessonsModel = new UserLessonsModel();
         }
         function home() {
+
             if(isset($_SESSION['USER'])){
                 $user = $_SESSION['USER'];
             }else{

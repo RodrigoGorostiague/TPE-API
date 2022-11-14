@@ -31,16 +31,16 @@
       {foreach from=$lessons item=lesson}
 
         <tr>
-          <td> <img src="{$lesson['img_src']}" alt="{$lesson['tema']}"> {$lesson['tema']} </td>
-          <td> <a href="detail/{$lesson['id']}">{$lesson['descripcion']}</a> </td>
+          <td> <img src="{$lesson['imgScr']}" alt="{$lesson['tema']}"> {$lesson['tema']} </td>
+          <td> <a href="detail/{$lesson['lessonId']}">{$lesson['descripcion']}</a> </td>
 
           <td>
       {if $user != -1}
-            <button class="btn btn-outline-warning"><a href="agregar/{$lesson['id']}"><i
+            <button class="btn btn-outline-warning"><a href="agregar/{$lesson['lessonId']}"><i
                   class="bi bi-file-plus"></i></a></button>
       {/if}
             <button type="button" class="btn btn-outline-warning position-relative">
-              <a href="like/{$lesson['id']}"><i class="bi bi-hand-thumbs-up"></i></a>
+              <a href="like/{$lesson['lessonId']}"><i class="bi bi-hand-thumbs-up"></i></a>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                 {$lesson['likes']}
                 <span class="visually-hidden">unread messages</span>

@@ -11,5 +11,8 @@ class SecuredController extends Controller
             }
             $_SESSION['LAST_ACTIVITY'] = time();
         }
+        else{
+            echo header('Location: http://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . '/login');
+        }
     }
 }

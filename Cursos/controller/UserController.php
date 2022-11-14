@@ -43,21 +43,22 @@
             $password= $_POST['password'];
             if(!empty($userName) && !empty($password)){
                 $user = $this->model->getUser($userName);
-                if (!empty($user) && password_verify($password, $user[0]['password'])){
+                if (!empty($user) && password_verify($password, $user['password'])){
                     session_start();
                     $_SESSION['USER'] = $userName;
-                    $_SESSION['USER_ID'] = $user[0]['id'];
+                    $_SESSION['USER_ID'] = $user['id'];
                     $_SESSION['LAST_ACTIVITY'] = time();
                     echo header('Location: http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
                 }else{
-                    $this->view->errorLogin("Usuario o password incorrectos");
+                    $user = -1;
+                    $this->view->errorLogin("Usuario o password incorrectos", $user);
                 } 
             }
         }
         public function logOut(){
             session_start();
             session_destroy();
-            echo header('Location: http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/home');
+            echo header('Location: http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/login');
         }
     }
 ?>

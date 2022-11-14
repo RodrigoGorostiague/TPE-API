@@ -63,7 +63,7 @@
             </div>
             {if (isset($succes))}
                 <div class="alert alert-info" role="alert">
-                    <i class="bi bi-check-circle-fill"> La actualizacion se ha realizado con exito.</i>
+                    <i class="bi bi-check-circle-fill">{$succes}</i>
                 </div>
                 <div>
                 {/if}
@@ -94,17 +94,17 @@
                         <tbody>
                             {foreach from=$lessons item=lesson}
                                 <tr>
-                                    <td> <img src="{$lesson['img_src']}" alt="{$lesson['tema']}">
+                                    <td> <img src="{$lesson['imgScr']}" alt="{$lesson['tema']}">
                                         <span>{$lesson['tema']}</span>
                                     </td>
-                                    <td> <a href="detail/{$lesson['id']}">{$lesson['descripcion']}</a></td>
+                                    <td> <a href="detail/{$lesson['lessonId']}">{$lesson['descripcion']}</a></td>
                                     <td>
                                         <button type="button" class="btn btn-outline-warning position-relative">
-                                            <i class="bi bi-trash"> <a href="delete-lesson/{$lesson['id']}">Eliminar</a></i>
+                                            <i class="bi bi-trash"> <a href="delete-lesson/{$lesson['lessonId']}">Eliminar</a></i>
                                         </button>
                                         <button class="btn collapsed btn-outline-warning" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-{$lesson['id']}"
-                                            aria-expanded="false" aria-controls="flush-{$lesson['id']}">
+                                            data-bs-toggle="collapse" data-bs-target="#flush-{$lesson['lessonId']}"
+                                            aria-expanded="false" aria-controls="flush-{$lesson['lessonId']}">
                                             <i class="bi bi-pencil-square"> Editar</i>
                                         </button>
                                     </td>
@@ -113,13 +113,13 @@
                                     <td colspan="4">
                                         <div class="accordion accordion-flush" id="accordionFlushExample">
                                             <div class="accordion-item">
-                                                <div id="flush-{$lesson['id']}" class="accordion-collapse collapse"
+                                                <div id="flush-{$lesson['lessonId']}" class="accordion-collapse collapse"
                                                     aria-labelledby="flush-headingOne"
                                                     data-bs-parent="#accordionFlushExample">
                                                     <div class="accordion-body">
 
                                                         {* update from *}
-                                                        <form action="update-lesson/{$lesson['id']}" method="post"
+                                                        <form action="update-lesson/{$lesson['lessonId']}" method="post"
                                                             enctype="multipart/form-data">
                                                             <div class="mb-3">
                                                                 <label for="tema" class="form-label">Tema</label>
@@ -141,18 +141,18 @@
                                                                 <div id="descripcion" class="form-text"></div>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="video_url" class="form-label">Url del
+                                                                <label for="video" class="form-label">Url del
                                                                     Video</label>
-                                                                <input type="text" class="form-control" id="video_url"
-                                                                    name="video_url" aria-describedby="video_url"
-                                                                    value="{$lesson['video_url']}" required>
+                                                                <input type="text" class="form-control" id="video"
+                                                                    name="video" aria-describedby="video"
+                                                                    value="{$lesson['video']}" required>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="slide_url" class="form-label">Url del
+                                                                <label for="slide" class="form-label">Url del
                                                                     Slide</label>
-                                                                <input type="text" class="form-control" id="slide_url"
-                                                                    name="slide_url" aria-describedby="slide_url"
-                                                                    value="{$lesson['slide_url']}" required>
+                                                                <input type="text" class="form-control" id="slide"
+                                                                    name="slide" aria-describedby="slide"
+                                                                    value="{$lesson['slide']}" required>
                                                             </div>
                                                             <div class="mb-3 form-check">
                                                                 <input type="checkbox" class="form-check-input"

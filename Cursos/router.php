@@ -1,36 +1,75 @@
-<?php 
-    define('ACTION', 0);
-    define('PARAMS', 1);
-    require_once 'model/Model.php';
-    require_once 'view/View.php';
-    require_once 'controller/Controller.php';
-    require_once 'controller/SecuredController.php';
-    require_once 'controller/LessonsController.php';
-    require_once 'controller/UserLessonsController.php';
-    require_once 'controller/UserController.php';
-    require_once 'controller/AdminController.php';
-    require_once 'config/ConfigApp.php';
+<?php
 
-    function parseURL($URL){
-        $explodedURL = explode('/', $URL);
-        $arrayReturn[ConfigApp::$ACTION] = $explodedURL[ACTION];
-        $arrayReturn[ConfigApp::$PARAMS] =(isset($explodedURL[PARAMS])) ? array_slice($explodedURL,PARAMS) : null; //if en una sola linea
-        return $arrayReturn;
+class Route {
+    private $url;
+    private $verb;
+    private $controller;
+    private $method;
+    private $params;
+
+    public function __construct($url, $verb, $controller, $method){
+        $this->url = $url;
+        $this->verb = $verb;
+        $this->controller = $controller;
+        $this->method = $method;
+        $this->params = [];
     }
-    if (isset($_GET['action'])){
-        $urlData = parseURL($_GET['action']);
-        $action = $urlData[ConfigApp::$ACTION];
-        if(array_key_exists($action, ConfigApp::$ACTIONS)){
-            $params = $urlData[ConfigApp::$PARAMS];
-            $action = explode('#', ConfigApp::$ACTIONS[$action]);
-            $controller = new $action[0]();
-            $metodo = $action[1];
-            if(isset($params) && ($params != null)){
-               echo $controller->$metodo($params);
-            }
-            else{
-               echo $controller->$metodo();
+    public function match($url, $verb) {
+        if($this->verb != $verb){
+            return false;
+        }
+        $partsURL = explode("/", trim($url,'/'));
+        $partsRoute = explode("/", trim($this->url,'/'));
+        if(count($partsRoute) != count($partsURL)){
+            return false;
+        }
+        foreach ($partsRoute as $key => $part) {
+            if($part[0] != ":"){
+                if($part != $partsURL[$key])
+                return false;
+            } //es un parametro
+            else
+            $this->params[$part] = $partsURL[$key];
+        }
+        return true;
+    }
+    public function run(){
+        $controller = $this->controller;  
+        $method = $this->method;
+        $params = $this->params;
+       
+        (new $controller())->$method($params);
+    }
+}
+
+class Router {
+    private $routeTable = [];
+    private $defaultRoute;
+
+    public function __construct() {
+        $this->defaultRoute = null;
+    }
+
+    public function route($url, $verb) {
+        //$ruta->url //no compila!
+        foreach ($this->routeTable as $route) {
+            if($route->match($url, $verb)){
+                //TODO: ejecutar el controller//ejecutar el controller
+                // pasarle los parametros
+                $route->run();
+                return;
             }
         }
-    }     
-?>
+        //Si ninguna ruta coincide con el pedido y se configuró ruta por defecto.
+        if ($this->defaultRoute != null)
+            $this->defaultRoute->run();
+    }
+    
+    public function addRoute ($url, $verb, $controller, $method) {
+        $this->routeTable[] = new Route($url, $verb, $controller, $method);
+    }
+
+    public function setDefaultRoute($controller, $method) {
+        $this->defaultRoute = new Route("", "", $controller, $method);
+    }
+}

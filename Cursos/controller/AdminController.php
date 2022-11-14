@@ -34,17 +34,31 @@
             $this->cmd();
         }
         function deleteLesson($lessonId) {
-            $this->model->deleteLesson($lessonId);
-            $this->cmd();
+            if(is_array($lessonId)){
+                $id= $lessonId[0];
+                }else{
+                    $id = $lessonId;
+                }
+            $this->model->deleteLesson($id);
+            $lessons = $this->modelLesson->getLessons();
+            $temas = $this->modelLesson->getAllTema();
+            $user = $_SESSION['USER'];
+            $success = 'La eliminacion ha sido completada con exito';
+            $this->view->successCmd($lessons, $temas, $user, $success);
         }
         
         function updateLesson($lessonId){
-            if(!empty($_POST['tema_id']) && (!empty($_POST['descripcion'])) && (!empty($_POST['video_url'])) && !empty($_POST['slide_url'])){
+            if(!empty($_POST['tema_id']) && (!empty($_POST['descripcion'])) && (!empty($_POST['video'])) && !empty($_POST['slide'])){
             $tema= ($_POST['tema_id']);
             $descripcion= $_POST['descripcion'];
-            $video_url= $_POST['video_url'];
-            $slide_url= $_POST['slide_url'];
-            $this->model->updateLesson($tema, $descripcion, $video_url, $slide_url, $lessonId);
+            $video_url= $_POST['video'];
+            $slide_url= $_POST['slide'];
+            if(is_array($lessonId)){
+                $id= $lessonId[0];
+                }else{
+                    $id = $lessonId;
+                }
+            $this->model->updateLesson($tema, $descripcion, $video_url, $slide_url, $id);
             $lessons = $this->modelLesson->getLessons();
             $temas = $this->modelLesson->getAllTema();
             $user = $_SESSION['USER'];

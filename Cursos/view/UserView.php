@@ -16,8 +16,10 @@
           $this->smarty->assign('error', $error);
           $this->smarty->display('signin.tpl');
         }
-        function errorLogin($error){
+        function errorLogin($error, $user){
           $this->smarty->assign('error', $error);
+          $this->smarty->assign('user', $user);
+
           $this->smarty->display('login.tpl');
         }
     }
